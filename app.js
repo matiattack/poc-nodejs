@@ -11,8 +11,11 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 
 var tvShowsControllers = require('./controllers/tvshowsController')(express);
+var moodleControllers = require('./controllers/moodleController')(express);
 
 app.use('/tvshows', tvShowsControllers);
+app.use('/moodle', moodleControllers);
+
 
 mongoose.connect('mongodb://localhost/tvshows', function(err, res) {
     if(err) {
